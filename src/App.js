@@ -60,10 +60,12 @@ function App () {
                 <Switch>
 
                     <Route path={"/"} exact component={ GarageMap } >
-                        { currentUser }
+                        { `Logged in as: ${currentUser}` }
                         <br/>
                         <br/>
                         { signedIn && <button onClick={ () => fire.auth().signOut() }> Log Out </button> }
+                        <br/>
+                        <br/>
                         { signedIn ? <GarageMap/> : <Redirect to={ "/signin" }/> }
 
                     </Route>

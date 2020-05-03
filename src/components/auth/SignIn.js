@@ -1,6 +1,5 @@
 import React  from "react";
 import { useHistory, Link } from 'react-router-dom';
-import { triggerChange } from '../../redux/actions/setActions.js';
 
 import fire from "../../firebase/fire";
 

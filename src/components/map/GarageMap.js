@@ -85,7 +85,7 @@ function GarageMap () {
 
     return (
 
-        <div style={ { height: '600px', width: '600px' } }>
+        <div style={ { height: '600px', width: '600px', margin: 'auto' } }>
 
             <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyACXJmIcEM0BKdZT4NMtzuJfPwL2po52sU' }}
