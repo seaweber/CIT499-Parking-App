@@ -17,6 +17,8 @@ function GarageMap () {
 
     const iupuiCoords = [ 39.7751777, -86.1777634 ];
 
+    const [ location, setLocation ] = useState( iupuiCoords );
+
     const mapMarkerCoords = {
 
         gatewayGarageCoords: [ 39.7756446, -86.1716292 ],
@@ -76,19 +78,31 @@ function GarageMap () {
         toggleFilter( event.target.checked )
     };
 
+    const teleport = garage => {
+
+        setLocation( mapMarkerCoords[ garage ] );
+    };
+
     return (
 
         <div style={ { height: '600px', width: '600px' } }>
 
             <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyACXJmIcEM0BKdZT4NMtzuJfPwL2po52sU' }}
-                center={ iupuiCoords }
+                center={ location }
                 defaultZoom={ 14 }
             >
                 { mapMarkers }
 
             </GoogleMapReact>
-
+            <br/>
+            <button onClick={ () => teleport('gatewayGarageCoords') }>Gateway</button>
+            <button onClick={ () => teleport('lockefieldGarageCoords') }>Lockefield</button>
+            <button onClick={ () => teleport('blackfordGarageCoords') }>Blackford</button>
+            <button onClick={ () => teleport('barnhillGarageCoords') }>Barnhill</button>
+            <button onClick={ () => teleport('sportsGarageCoords') }>Natatorium</button>
+            <button onClick={ () => teleport('riverwalkGarageCoords') }>Riverwalk</button>
+            <br/>
             <br/>
             <input type="checkbox" onClick={  event => handleFilterToggle( event ) } id="filter" name="filter" value="filter"/>
             <label for="filter">Filter by IT/ET</label>

@@ -27,11 +27,9 @@ function App () {
 
     useEffect( () => {
 
-        setCurrentUser( fire.auth().currentUser );
-
         /*
          * Problem: useEffect fires AFTER rendering, so fetching the currentUser here
-         * means that it will still be null at the time things are rendered
+         * means that it will still be null at by the time things are rendered
          *
          * Solution: initialize currentUser as null in local state instead of redux store,
          * then when you fetch currentUser from firebase and assign it to state,
